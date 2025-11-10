@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkleSprout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sprout.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>SparkleSprout</h1>
+        
+        <div id="main-menu">
+            <button class="menu-btn" id="stories-btn">📚 Stories</button>
+            <button class="menu-btn" id="games-btn">🎮 Games</button>
+            <button class="menu-btn" id="ask-btn">Ask Sparky</button>
+        </div>
+
+        <div id="ai-helper-ui" class="hidden">
+            <div id="sparky-mascot"></div>
+            <button id="ask-button">🎤 Tap to Talk</button>
+            <p id="status-message">Press the button and ask me anything!</p>
+            <div id="status-body"></div>
+            <button id="back-btn" class="back-btn">← Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="sprout.js"></script>
+</body>
+</html>
