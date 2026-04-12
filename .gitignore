@@ -1,0 +1,19 @@
+# Virtual Environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Questly data file (optional - you can keep it)
+questly_data.json
+
+# Logs
+*.log
