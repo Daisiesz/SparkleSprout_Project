@@ -33,6 +33,11 @@ SparkleSprout brings together two powerful kid-friendly tools:
 - Degree/Radian mode
 - Perfect for young learners exploring math
 
+### 3. **Quiz game** 
+- Large, colorful, easy-to-use interface
+- Has Maths, AI, Software Engineering and Grammar exercises
+- Perfect for young learners exploring math
+
 ---
 
 
@@ -70,14 +75,15 @@ python main_hub.py
 ✅ Easy to extend with more learning modules later
 
 SparkleSprout_Project/
-├── main_hub.py                 # Main launcher
-├── questly.py                  # Adventure planner app
-├── kids_calculator/            # Calculator package
+├── sparkle_quiz/
 │   ├── __init__.py
-│   ├── core.py
-│   └── gui.py
-├── README.md
-└── venv/                       # (ignored)
+│   ├── quiz_data.py
+│   ├── quiz_core.py
+│   └── quiz_gui.py
+├── main_hub.py
+├── questly.py
+├── kids_calculator/
+
 
 🎨 Philosophy
 SparkleSprout believes that learning should be joyful. By combining goal setting, reflection (journaling & gratitude), and math practice, we help children build not just academic skills, but also character, discipline, and emotional intelligence.

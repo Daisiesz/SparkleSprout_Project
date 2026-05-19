@@ -1,1 +1,1 @@
-from quiz_gui import SparkleQuiz
+from .quiz_gui import SparkleQuiz

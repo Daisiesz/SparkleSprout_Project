@@ -57,27 +57,55 @@ class SparkleSproutHub:
 
     def launch_questly(self):
         try:
-            subprocess.Popen([sys.executable, "questly.py"])
-            messagebox.showinfo("Launching Questly", "Questly is opening! 🌟")
-        except Exception as e:
-            messagebox.showerror("Error", f"Could not launch Questly:\n{str(e)}")
+            import subprocess
+            import os
+            import time
 
+            questly_path = os.path.abspath("questly.py")
+
+            if not os.path.exists(questly_path):
+                messagebox.showerror("File Missing", "questly.py was not found in the project folder!")
+                return
+
+            # Strongest method for Windows
+            if os.name == 'nt':  # Windows
+                subprocess.Popen(
+                    [sys.executable, questly_path],
+                    creationflags=subprocess.CREATE_NEW_CONSOLE | subprocess.DETACHED_PROCESS,
+                    shell=False
+                )
+            else:
+                subprocess.Popen([sys.executable, questly_path])
+
+            # Small delay so the message doesn't appear too fast
+            time.sleep(0.8)
+            messagebox.showinfo("Questly Launched ✅", 
+                "Questly should be opening now.\n\nIf it still doesn't appear, try closing the hub and running questly.py directly.")
+
+        except Exception as e:
+            messagebox.showerror("Launch Error", f"Could not launch Questly:\n\n{str(e)}")
+    
     def launch_calculator(self):
         try:
             subprocess.Popen([sys.executable, "-m", "kids_calculator.gui"])
             messagebox.showinfo("Launching Calculator", "Kids Calculator is opening! 🧮")
         except Exception as e:
             messagebox.showerror("Error", f"Could not launch Calculator:\n{str(e)}")
-
+    
     def launch_quiz(self):
         try:
+            # Better import handling
+            import sys
+            if "sparkle_quiz" not in sys.path:
+                sys.path.insert(0, ".")
+            
             from sparkle_quiz.quiz_gui import SparkleQuiz
-            # Run quiz in the same process (better integration)
             quiz = SparkleQuiz()
             quiz.run()
         except Exception as e:
-            messagebox.showerror("Error", f"Could not launch SparkleQuiz:\n{str(e)}")
-
+            messagebox.showerror("SparkleQuiz Error", 
+                f"Failed to launch Quiz:\n{str(e)}\n\nMake sure sparkle_quiz folder exists with all files.")
+    
     def run(self):
         self.root.mainloop()
 
